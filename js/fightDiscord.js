@@ -1,43 +1,41 @@
 function startFightDiscord(mst, medic) {
     let MST = new Entite(mst);
     let medicament = new Entite(medic);
-    generateModels(MST, medicament);
-    playFight(MST, medicament);
+    playFightDiscord(MST, medicament);
 }
 
 
 
 
-    function playFight(MST, medicament) {
+    function playFightDiscord(MST, medicament) {
         while (MST.isAlive && medicament.isAlive) {
-            playTurn(MST, medicament);
+            playTurnDiscord(MST, medicament);
         }
-        determineWInner(MST, medicament);
+        determineWInnerDiscord(MST, medicament);
 
     }
 
-    function playTurn(MST, medicament) {
+    function playTurnDiscord(MST, medicament) {
 
         if (MST.speed > medicament.speed) {
-            attack(MST, medicament);
-            attack(medicament, MST);
+            attackDiscord(MST, medicament);
+            attackDiscord(medicament, MST);
         } else {
-            attack(medicament, MST);
-            attack(MST, medicament);
+            attackDiscord(medicament, MST);
+            attackDiscord(MST, medicament);
         }
         $('#healthMST').text(MST.health);
         $('#healthMedic').text(medicament.health);
 
     }
 
-    function determineWInner(MST, medicament) {
+    function determineWInnerDiscord(MST, medicament) {
         if (MST.isAlive) {
             $('#winnerDiscord').text(MST.name);
 
             return MST.name;
 
         } else {
-            console.log(medicament.name);
 
             $('#winnerDiscord').text(medicament.name);
             return medicament.name;
@@ -45,8 +43,8 @@ function startFightDiscord(mst, medic) {
         }
     }
 
-function attack(attacker, defender) {
-    let damage = attacker.attack / defender.defense;
+function attackDiscord(attackDiscorder, defender) {
+    let damage = attackDiscorder.attackDiscord / defender.defense;
     if (damage < 0) {
         damage = 0;
     }
