@@ -1,0 +1,19 @@
+#fightInfos{
+    display: flex;
+    justify-content: space-between;
+}
+
+#terrain{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6vh;
+}
+
+#terrain>div>img{
+    width: 30%;
+    margin: 0 5vh;
+}
+#CampMedic{
+    display: flex;
+    justify-content: flex-end;    
+}

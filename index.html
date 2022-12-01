@@ -4,48 +4,64 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="js/main.js"></script>
-    <style src="css/styles.css"></style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <!-- include local jquery -->
-    <script src="js/jquery-3.6.1.min.js"></script>
+    <script src="js/Entites.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/js/shepherd.min.js"></script>
+
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/css/shepherd.css"/>
     <script type="module" src="js/formulaires.js" defer></script>
     <title>Nuit Express V2</title>
 </head>
 <body>
-    <h1>Bienvenue sur VIH Simulator</h1>
 
-    <h2>Choisir Virus 1</h2>
-    <select name="virus1" id="virus1">
-        <option value="virus1">Xx_Hepatite_xX</option>
-        <option value="virus2">Turbo VIH</option>
-        <option value="virus3">Mega Sida</option>
+    <h1 class="hey">Bienvenue sur VIH Simulator</h1>
+
+    <h2>Choisir MST 1</h2>
+    <select name="MST1" id="MST">
+        <option id="MST1" value="MST1">Xx_Hepatite_xX</option>
+        <option id="MST2"value="MST2">Turbo VIH</option>
+        <option id="MST3"value="MST3">Mega Sida</option>
     </select>
     <input id="name_virus" class="step"/>
 
     <h2>Choisir Medicament 1</h2>
-    <select name="medicament1" id="medicament1">
-        <option value="medicament1">Antibiotique</option>
-        <option value="medicament2">Preservatif</option>
-        <option value="medicament3">Contraception</option>
-    </select>
-    <input id="name_medicament"/>
-    <button onclick="startFight()">Start Fight</button>
+    <select name="medicament1" id="medicament">
+        <option id="medicament1" value="medicament1">Antibiotique</option>
+        <option id="medicament2" value="medicament2">Preservatif</option>
+        <option id="medicament3" value="medicament3">Contraception</option>
+    </select><br><br>
+    <button id="startButton">Start Fight</button>
 
+    <h2>Combat</h2>
     <div id="fight">
-        <h2>Combat</h2>
-        <div id="virus1">
-            <h3>Virus 1</h3>
-            <p>Points de vie : <span id="virus1Life"></span></p>
-            <p>Points d'attaque : <span id="virus1Attack"></span></p>
+        <div id="fightInfos">
+            <div id="MST1">
+                <h3 id="MSTname">MST 1</h3>
+                <p>Points de vie : <span id="MST1Health"></span></p>
+                <p>Points d'attaque : <span id="MST1Attack"></span></p>
+                <p>Points de défense : <span id="MST1Defense"></span></p>
+                <p>Vitesse : <span id="MST1Speed"></span></p>
+            </div>
+            <div id="medicament1">
+                <h3 id="medicname">Medicament 1</h3>
+                <p>Points de vie : <span id="medicament1Health"></span></p>
+                <p>Points d'attaque : <span id="medicament1Attack"></span></p>
+                <p>Points de défense : <span id="medicament1Defense"></span></p>
+                <p>Vitesse : <span id="medicament1Speed"></span></p>
+            </div>
         </div>
-        <div id="medicament1">
-            <h3>Medicament 1</h3>
-            <p>Points de vie : <span id="medicament1Life"></span></p>
-            <p>Points d'attaque : <span id="medicament1Attack"></span></p>
+        <div id="terrain">
+            <div id="CampMst">
+            </div>
+            <div id="CampMedic">
+            </div>
         </div>
+        <h1>Gagnant : </h1>
+        <p id="winner"></p>
     </div>
+
 </body>
 </html>
