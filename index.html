@@ -4,10 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/main.js"></script>
+    <style src="css/styles.css"></style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    //include local jquery
+    <script src="js/jquery-3.6.1.min.js"></script>
     <title>Nuit Express V2</title>
 </head>
 <body>
-    <h1>Express V2</h1>
-    <p>Express V2</p>     
+    <h1>Bienvenue sur VIH Simulator</h1>
+    
+    <h2>Choisir Virus 1</h2>
+    <select name="virus1" id="virus1">
+        <option value="virus1">Xx_Hepatite_xX</option>
+        <option value="virus2">Turbo VIH</option>
+        <option value="virus3">Mega Sida</option>
+    </select>
+    <h2>Choisir Medicament 1</h2>
+    <select name="medicament1" id="medicament1">
+        <option value="medicament1">Antibiotique</option>
+        <option value="medicament2">Preservatif</option>
+        <option value="medicament3">Contraception</option>
+    </select>
+    <button onclick="startFight()">Start Fight</button>
+    
+    <div id="fight">
+        <h2>Combat</h2>
+        <div id="virus1">
+            <h3>Virus 1</h3>
+            <p>Points de vie : <span id="virus1Life"></span></p>
+            <p>Points d'attaque : <span id="virus1Attack"></span></p>
+        </div>
+        <div id="medicament1">
+            <h3>Medicament 1</h3>
+            <p>Points de vie : <span id="medicament1Life"></span></p>
+            <p>Points d'attaque : <span id="medicament1Attack"></span></p>
+        </div>
+    </div>
 </body>
 </html>
