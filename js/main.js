@@ -1,6 +1,11 @@
 $(document).ready(function () {
     console.log('Hello World!');
 
+    function debugDiscordBot() {
+        console.log('Discord bot is ready!');
+        return 'Discord bot is ready!';
+    }
+
     $('#startButton').click(function () {
         let mst = $('#' + $('#MST').val()).text();
         let medicament = $('#' + $('#medicament').val()).text();
@@ -17,7 +22,11 @@ $(document).ready(function () {
         }
 
 
-    
+    // wait 1 second then print the fight infos in console
+    function wait(ms) {
+        setTimeout(function () {
+            console.log('MST: ');
+        }, ms);
 
 
     function playFight(MST, medicament) {
