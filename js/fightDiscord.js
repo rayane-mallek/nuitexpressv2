@@ -17,6 +17,7 @@ function startFightDiscord(mst, medic) {
     }
 
     function playTurn(MST, medicament) {
+
         if (MST.speed > medicament.speed) {
             attack(MST, medicament);
             attack(medicament, MST);
@@ -24,6 +25,9 @@ function startFightDiscord(mst, medic) {
             attack(medicament, MST);
             attack(MST, medicament);
         }
+        $('#healthMST').text(MST.health);
+        $('#healthMedic').text(medicament.health);
+
     }
 
     function determineWInner(MST, medicament) {
