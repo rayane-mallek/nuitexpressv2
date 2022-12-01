@@ -7,27 +7,30 @@
     <script src="js/main.js"></script>
     <style src="css/styles.css"></style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    //include local jquery
+    <!-- include local jquery -->
     <script src="js/jquery-3.6.1.min.js"></script>
     <title>Nuit Express V2</title>
 </head>
 <body>
     <h1>Bienvenue sur VIH Simulator</h1>
-    
+
     <h2>Choisir Virus 1</h2>
     <select name="virus1" id="virus1">
         <option value="virus1">Xx_Hepatite_xX</option>
         <option value="virus2">Turbo VIH</option>
         <option value="virus3">Mega Sida</option>
     </select>
+    <input id="name_virus" />
+
     <h2>Choisir Medicament 1</h2>
     <select name="medicament1" id="medicament1">
         <option value="medicament1">Antibiotique</option>
         <option value="medicament2">Preservatif</option>
         <option value="medicament3">Contraception</option>
     </select>
+    <input id="name_virus" />
     <button onclick="startFight()">Start Fight</button>
-    
+
     <div id="fight">
         <h2>Combat</h2>
         <div id="virus1">
