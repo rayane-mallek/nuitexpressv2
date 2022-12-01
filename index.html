@@ -8,30 +8,47 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/Entites.js"></script>
+    <script src="js/fight.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/js/shepherd.min.js"></script>
+    <script  src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="semantic/semantic.min.js"></script>
 
     <link rel="stylesheet" href="css/styles.css">    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/css/shepherd.css"/>
+    <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+
+
+
     <title>Nuit Express V2</title>
 </head>
 <body>
 
     <h1 class="hey">Bienvenue sur VIH Simulator</h1>
 
+      
     <h2>Choisir MST 1</h2>
-    <select name="MST1" id="MST">
-        <option id="MST1" value="MST1">Xx_Hepatite_xX</option>
-        <option id="MST2"value="MST2">Turbo VIH</option>
-        <option id="MST3"value="MST3">Mega Sida</option>
-    </select>
+    <div id="containerSelectMST">
+        <select class="ui search dropdown" id="MST">
+            <option selected="selected" id="MST1" value="MST1">Xx_Hepatite_xX</option>
+            <option id="MST2"value="MST2">Turbo VIH</option>
+            <option id="MST3"value="MST3">Mega Sida</option>
+        </select>
+    </div>
+    <button id="addMST" class="ui button">
+        Ajouter une MST
+      </button>
     <input id="name_virus" />
 
     <h2>Choisir Medicament 1</h2>
-    <select name="medicament1" id="medicament">
-        <option id="medicament1" value="medicament1">Antibiotique</option>
+    <select class="ui search dropdown" name="medicament1" id="medicament">
+        <option selected="selected" id="medicament1" value="medicament1">Antibiotique</option>
         <option id="medicament2" value="medicament2">Preservatif</option>
         <option id="medicament3" value="medicament3">Contraception</option>
-    </select><br><br>
+    </select>
+    <button class="ui button">
+        Ajouter un medicament
+      </button>
+      <br><br>
     <button id="startButton">Start Fight</button>
 
     <h2>Combat</h2>    
@@ -53,7 +70,7 @@
             </div>
         </div>
         <div id="terrain">
-            <div id="CampMst">
+            <div id="CampMST">
             </div>
             <div id="CampMedic">
             </div>
