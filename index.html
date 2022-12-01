@@ -11,7 +11,7 @@
     <script src="js/jquery-3.6.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/js/shepherd.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/css/shepherd.css"/>
-    <script type="module" src="js/formulaires.js"></script>
+    <script type="module" src="js/formulaires.js" defer></script>
     <title>Nuit Express V2</title>
 </head>
 <body>
@@ -23,7 +23,7 @@
         <option value="virus2">Turbo VIH</option>
         <option value="virus3">Mega Sida</option>
     </select>
-    <input id="name_virus" />
+    <input id="name_virus" class="step"/>
 
     <h2>Choisir Medicament 1</h2>
     <select name="medicament1" id="medicament1">
@@ -31,7 +31,7 @@
         <option value="medicament2">Preservatif</option>
         <option value="medicament3">Contraception</option>
     </select>
-    <input id="name_virus" />
+    <input id="name_medicament"/>
     <button onclick="startFight()">Start Fight</button>
 
     <div id="fight">
