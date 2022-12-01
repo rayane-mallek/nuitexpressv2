@@ -5,7 +5,7 @@ $(document).ready(function () {
         let mst = $('#' + $('#MST').val()).text();
         let medicament = $('#' + $('#medicament').val()).text();
         startFight(mst, medicament);
-        
+
     });
 
     function startFight(mst, medic) {
@@ -17,7 +17,7 @@ $(document).ready(function () {
         }
 
 
-    
+
 
 
     function playFight(MST, medicament) {

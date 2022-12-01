@@ -1,18 +1,20 @@
+document.onkeydown = function(e) {
+  if (e.key === 'Enter') {
+    try {
+      document.getElementsByClassName(' shepherd-button ')[0].click();
+    } catch {}
+  }
+}
+
 const tour = new Shepherd.Tour({
-    useModalOverlay: true,
-    defaultStepOptions: {
-      classes: 'shadow-md bg-purple-dark',
-      scrollTo: true
-    },S
+  useModalOverlay: true,
+  defaultStepOptions: {
+    classes: 'shadow-md bg-purple-dark',
+    scrollTo: true
+  }
 });
 
-document.querySelector('.step').addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-        tour.next
-    }
-});
-
-
+document
 tour.addStep({
     id: 'virus-name',
     text: 'Veillez entrer un nom pour le virus.',
