@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    console.log('Hello World!');
+
+
 
     function debugDiscordBot() {
         console.log('Discord bot is ready!');
@@ -13,44 +14,59 @@ $(document).ready(function () {
         
     });
 
+    $('#MSTSelect').change(function () {
+        let mst = $('#' + $('#MST').val()).text();
+        updateFightInfos(mst);
+    });
+
     function startFight(mst, medic) {
         let MST = new Entite(mst);
         let medicament = new Entite(medic);
-        updateFightInfos(MST, medicament);
         generateModels(MST, medicament);
         playFight(MST, medicament);
-        }
-
-
-    // wait 1 second then print the fight infos in console
-    function wait(ms) {
-        setTimeout(function () {
-            console.log('MST: ');
-        }, ms);
-
-
-    function playFight(MST, medicament) {
-        while (MST.isAlive && medicament.isAlive) {
-            updateFightInfos(MST, medicament);
-                if (MST.speed > medicament.speed) {
-                    attack(MST, medicament);
-                    if (medicament.isAlive) {
-                        attack(medicament, MST);
-                    }
-                } else {
-                    attack(medicament, MST);
-                    if (MST.isAlive) {
-                        attack(MST, medicament);
-                    }
-                }
-        }
-        if (MST.isAlive) {
-            console.log(MST.name + ' a gagné !');
-            $('#winner').text(MST.name);
-        } else {
-            $('#winner').text(medicament.name);
-        }
     }
+
+        function wait(ms) {
+            return new Promise((resolve, reject) => {
+              setTimeout(() => {
+                console.log("Done waiting");
+                resolve(ms)
+              }, ms )
+            });
+          }
+
+
+        async function playFight(MST, medicament) {
+            while (MST.isAlive && medicament.isAlive) {
+                await wait(100);
+                playTurn(MST, medicament);
+                updateFightInfos(MST, medicament);
+                generateModels(MST, medicament);
+            }
+            determineWInner(MST, medicament);
+
+        }
+
+        function playTurn(MST, medicament) {
+            if (MST.speed > medicament.speed) {
+                attack(MST, medicament);
+                attack(medicament, MST);
+            } else {
+                attack(medicament, MST);
+                attack(MST, medicament);
+            }
+        }
+
+        function determineWInner(MST, medicament) {
+            if (MST.isAlive) {
+                $('#winner').text(MST.name);
+                return MST.name;
+    
+            } else {
+                $('#winner').text(medicament.name);
+                return medicament.name;
+            }
+        }
 
     function attack(attacker, defender) {
         let damage = attacker.attack - defender.defense;
