@@ -1,21 +1,14 @@
 $(document).ready(function () {
 
-let urlString = window.location.href
-console.log(urlString)
-let paramString = urlString.split('?')[1];
-let queryString = new URLSearchParams(paramString);
+let params = (new URL(document.location)).searchParams;
+let medic = params.get("medic");
+let mst = params.get("mst");
+console.log(mst);
+console.log(medic);
 
-for (let pair of queryString.entries()) {
-   console.log("Key is: " + pair[0]);
-   console.log("Value is: " + pair[1]);
-    let entite = new Entite(pair[1]);
-    if(pair[0] == "mst"){
-    $('#mstResponse').text(JSON.stringify(entite));
-    }
-    if(pair[0] == "medic"){
-    $('#medicResponse').text(JSON.stringify(entite));
-    }
-}
+startFightDiscord(mst, medic); 
+
+
 
 });
 
