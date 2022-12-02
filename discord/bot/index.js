@@ -1,7 +1,10 @@
 require("dotenv").config();
+const XMLHttpRequest = require("xhr2");
 const fs = require('node:fs');
-const {Collection, Client, Events, GatewayIntentBits, EmbedBuilder} = require('discord.js');
+const {Collection, Client, Events, GatewayIntentBits, EmbedBuilder, ActionRowBuilder, StringSelectMenuBuilder} = require('discord.js');
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+let gameVariables = [];
+let dataGet = "";
 
 client.commands = new Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -16,80 +19,215 @@ client.on('ready', () => {
 });
 
 
-
 client.on(Events.InteractionCreate, async interaction => {
-    if (!interaction.isChatInputCommand()) return;
+
+    if (interaction.isStringSelectMenu()) {
+
+        const selectedInput = interaction.values[0];
+        const row = new ActionRowBuilder()
+            .addComponents(
+                new StringSelectMenuBuilder()
+                    .setCustomId('select')
+                    .setPlaceholder('Selection')
+                    .addOptions(
+                        {
+                            label: 'Preservatif',
+                            description: 'Preservatif masculin',
+                            value: 'MED;Preservatif',
+                        },
+                        {
+                            label: 'Contraception',
+                            description: 'Contraception',
+                            value: 'MED;contraception',
+                        },
+                        {
+                            label: 'Antibiotique',
+                            description: 'Antibiotique',
+                            value: 'MED;antibiotique',
+                        },
+                    ),
+            );
+
+        let isMst = selectedInput.split(";");
+        if (isMst[0] === 'MST') {
+            let selected = isMst[1];
+            if (selected === 'vih') {
+                const newEmbed = new EmbedBuilder().setTitle('VIH').setDescription('VIH Choisi');
+                gameVariables.push(selected);
+                await interaction.update({embeds: [newEmbed], components: [row]});
+            } else if (selected === 'syphilis') {
+                gameVariables.push(selected);
+                const newEmbed = new EmbedBuilder().setTitle('Syphilis').setDescription('Syphilis choisi');
+                await interaction.update({embeds: [newEmbed], components: [row]});
+            } else if (selected === 'Xx_Hepatite_xX') {
+                gameVariables.push(selected);
+                const newEmbed = new EmbedBuilder().setTitle('Hepatite').setDescription('Hepatite choisi');
+                await interaction.update({embeds: [newEmbed], components: [row]});
+            }
+        } else if (isMst[0] === "MED") {
+            let selected = isMst[1];
+            if (selected === 'antibiotique') {
+                gameVariables.push(selected);
+                const newEmbed = new EmbedBuilder()
+                    .setTitle('Résumé').setDescription(`Maladie : ${gameVariables[0]}\nMédicament : ${gameVariables[1]}`);
+                await interaction.update({embeds: [newEmbed]});
+            } else if (selected === 'contraception') {
+                gameVariables.push(selected);
+                const newEmbed = new EmbedBuilder()
+                    .setTitle('Résumé').setDescription(`Maladie : ${gameVariables[0]}\nMédicament : ${gameVariables[1]}`);
+                await interaction.update({embeds: [newEmbed]});
+            } else if (selected === 'Preservatif') {
+                gameVariables.push(selected);
+                getHttpRequest();
+                const newEmbed = new EmbedBuilder()
+                    .setTitle("Résumé").setDescription(`Maladie : ${gameVariables[0]}\nMédicament : ${gameVariables[1]}`);
+                await interaction.update({embeds: [newEmbed], components: []});
+            }
+            simulation(interaction.channel);
+        }
+    }
+
+    function simulation(channel) {
+        getHttpRequest();
+        let virusJson = dataGet.data.find(item => item.name === gameVariables[0])
+        let medJson = dataGet.data.find(item => item.name === gameVariables[1])
+        let i = 0;
+        while (virusJson.health > 0 || medJson.health > 0) {
+
+            startFightDiscord(channel, virusJson, medJson);
+        }
+
+
+    }
+
 
     const command = client.commands.get(interaction.commandName);
-
     if (!command) return;
 
     try {
+        const filter = i => i.customId === 'primary' && i.user.id === interaction.user.id;
+
+        const collector = interaction.channel.createMessageComponentCollector({ filter, time: 15000 });
+
+        const row = new ActionRowBuilder()
+            .addComponents(
+                new StringSelectMenuBuilder()
+                    .setCustomId('select')
+                    .setPlaceholder('Selection')
+                    .addOptions(
+                        {
+                            label: 'VIH',
+                            description: 'C\'est le sida',
+                            value: 'MST;vih',
+                        },
+                        {
+                            label: 'Syphilis',
+                            description: 'Une autre mst',
+                            value: 'MST;syphilis',
+                        },
+                        {
+                            label: 'Hepatite',
+                            description: 'Encore une autre mst',
+                            value: 'MST;Xx_Hepatite_xX',
+                        },
+                    ),
+            );
+
+        collector.on('collect', async i => {
+            await i.update({ content: `Lancement de la partie`, components: [row] });
+        });
+
+        collector.on('end', collected => {});
+
         await command.execute(interaction);
+
+
     } catch (error) {
         console.error(error);
-        await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+        await interaction.reply({ content: 'Il y a une erreur !', ephemeral: true });
     }
 
-    const filter = i => i.customId === 'primary' && i.user.id === '122157285790187530';
-
-    const collector = interaction.channel.createMessageComponentCollector({ filter, time: 15000 });
-
-    collector.on('collect', async i => {
-        await i.update({ content: 'A button was clicked!', components: [] });
-    });
-
-    collector.on('end', collected => console.log(`Collected ${collected.size} items`));
 });
 
-// Interact with add MST
-// client.on(Events.InteractionCreate, async interaction => {
-//     const command = interaction.client.commands.get(interaction.commandName);
-//
-//     if (!command) {
-//         console.error(`No command matching ${interaction.commandName} was found.`);
-//         return;
-//     }
-//
-//     try {
-//         await command.execute(interaction);
-//     } catch (error) {
-//         console.error(error);
-//         await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
-//     }
-//     // const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-//     // let url = "https://webinfo.iutmontp.univ-montp2.fr/~gaidot/nuitexpressv2/data.json";
-//     //     let xhr = new XMLHttpRequest();
-//     //     xhr.open("GET", url, true);
-//     //     xhr.onreadystatechange = function () {
-//     //         if (xhr.readyState == 4 && xhr.status == 200) {
-//     //             var json = JSON.parse(xhr.responseText);
-//     //             console.log(json);
-//     //             return json;
-//     //         }
-//     //     }
-//     //     xhr.send();
-//         const selected = interaction.values[0];
-//         if (selected === 'vih') {
-//             const newEmbed = new EmbedBuilder()
-//                 .setTitle('VIH')
-//                 .setDescription('VIH Choisi');
-//             await interaction.update({ embeds: [newEmbed] });
-//         } else {
-//             const newEmbed = new EmbedBuilder()
-//                 .setTitle('Autre')
-//                 .setDescription('Autre choisi');
-//             await interaction.update({ embeds: [newEmbed] });
-//         }
-//     });
-//
-//
+function getHttpRequest() {
+    let queryParameters = "mst=" + gameVariables[0] + "&medic=" + gameVariables[1];
+    let url = "https://webinfo.iutmontp.univ-montp2.fr/~nalixt/nuitexpressv2/data.json";
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url, true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            dataGet = JSON.parse(xhr.responseText);
+            //console.log(dataGet);
+        }
+    }
+    xhr.send();
+}
 
+class Entite {
+    constructor(data) {
+        this.name = data.name;
+        this.class = 'Entite';
+        this.health = data.health;
+        this.attack = data.attack;
+        this.defense = data.defense;
+        this.speed = data.speed;
+        this.image = data.image;
+        this.isAlive = true;
+    }
 
+    getIsAlive() { return this.isAlive; }
+    getHealth() { return this.health; }
+    getSpeed() { return this.speed; }
+    getName() { return this.name; }
+    getAttack() { return this.attack; }
+    getDefense() { return this.defense; }
+    setHealth(health) { this.health = health; }
+    setIsAlive(isAlive) { this.isAlive = isAlive; }
+}
+function startFightDiscord(channel, mst, medic) {
+    let MST = new Entite(mst);
+    let medicament = new Entite(medic);
+    console.log(MST.getHealth());
+    while (MST.getIsAlive() && medicament.getIsAlive()) {
+        //console.log("MST : " + MST.getIsAlive() + " Medicament : " + medicament.getIsAlive());
+        //console.log("MST : " + MST.getHealth() + " | Medicament : " + medicament.getHealth());
+        let embedVirus = new EmbedBuilder()
+            .setTitle('Simulation')
+            .setDescription("Simulation en cours");
+        let embedMed = new EmbedBuilder()
+            .setTitle('Simulation')
+            .setDescription("Simulation en cours");
 
+        channel.send({ embeds: [embedVirus] });
+        channel.send({ embeds: [embedMed] });
+        if (MST.getSpeed() > medicament.getSpeed()) {
+            let damage = MST.getAttack() / medicament.getDefense();
+            if (damage < 0) damage = 0;
+            MST.setHealth(MST.getHealth() - damage);
+            if (MST.getHealth() <= 0) MST.setIsAlive(false);
+            damage = medicament.getAttack() / MST.getDefense();
+            if (damage < 0) damage = 0;
+            medicament.setHealth(medicament.getHealth() - damage);
+            if (medicament.getHealth() <= 0) medicament.setIsAlive(false);
+        } else {
+            let damage = MST.getAttack() / medicament.getDefense();
+            if (damage < 0) damage = 0;
+            MST.setHealth(MST.getHealth() - damage);
+            if (MST.getHealth() <= 0) MST.setIsAlive(false);
+            damage = medicament.getAttack() / MST.getDefense();
+            if (damage < 0) damage = 0;
+            medicament.setHealth(medicament.getHealth() - damage);
+            if (medicament.getHealth() <= 0) medicament.setIsAlive(false);
+        }
+    }
+    if (MST.getIsAlive()) {
+        return MST.getName();
+    } else {
+        return medicament.getName();
 
+    }
 
+}
 
-//});
 
 client.login(process.env.BOT_TOKEN);

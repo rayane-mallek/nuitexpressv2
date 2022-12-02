@@ -1,5 +1,5 @@
 
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle, SlashCommandBuilder, EmbedBuilder} = require('discord.js');
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle, SlashCommandBuilder, EmbedBuilder, StringSelectMenuBuilder} = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -17,8 +17,8 @@ module.exports = {
         const embed = new EmbedBuilder()
             .setColor(0x0099FF)
             .setTitle('Commencer une nouvelle partie')
-            .setDescription('Faut cliquer sur des boutons pour la lancer');
+            .setDescription('Cliquer sur le bouton pour commencer une nouvelle partie.');
 
-        await interaction.reply({ content: 'I think you should,', ephemeral: true, embeds: [embed], components: [row] });
-        },
+        await interaction.reply({ephemeral: true, embeds: [embed], components: [row]});
+    }
     };
