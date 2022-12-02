@@ -16,8 +16,9 @@
     <script  src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="semantic/semantic.min.js"></script>
 
-    <link rel="stylesheet" href="css/styles.css">    
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/css/shepherd.css"/>
+    <script type="module" src="js/formulaires.js" defer></script>
     <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
 
 
@@ -28,7 +29,7 @@
 
     <h1 class="hey">Bienvenue sur VIH Simulator</h1>
 
-      
+
     <h2>Choisir MST 1</h2>
     <div id="containerSelectMST">
         <select class="ui search dropdown" id="MST">
@@ -39,8 +40,9 @@
     </div>
     <button id="addMST" class="ui button">
         Ajouter une MST
-      </button>
-    <input id="name_virus" />
+    </button>
+    <input id="name_virus" class="name1"/>
+
 
     <h2>Choisir Medicament 1</h2>
     <select class="ui search dropdown" name="medicament1" id="medicament">
@@ -51,10 +53,11 @@
     <button class="ui button">
         Ajouter un medicament
       </button>
+      <input id="name_medicament" />
       <br><br>
     <button id="startButton">Start Fight</button>
 
-    <h2>Combat</h2>    
+    <h2>Combat</h2>
     <div id="fight">
         <div id="fightInfos">
             <div id="MST1">
@@ -81,6 +84,6 @@
         <h1>Gagnant : </h1>
         <p id="winner"></p>
     </div>
-    
+
 </body>
 </html>
