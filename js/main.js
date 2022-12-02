@@ -6,6 +6,7 @@ $(document).ready(function () {
 
     function darkPattern(){
         let params = (new URL(document.location)).searchParams;
+        let darkPattern = params.get("darkPattern");
         if(darkPattern){  
             $('.darkPattern').hide();
             $('.PatternDark').show();
