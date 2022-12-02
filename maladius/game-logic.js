@@ -22,6 +22,7 @@ let player;
 let aliens;
 let bullets;
 let bulletTime = 0;
+let bulletDelay = 200;
 let cursors;
 let fireButton;
 let explosions;
@@ -38,6 +39,10 @@ let music;
 let sfx_fire;
 let sfx_enemy_die;
 let player_win = false;
+let bullet_speed = 120;
+let addEnnemies = false;
+let ennemiesDelay = 0;
+let konamiCode = false;
 
 function create() {
 
@@ -109,16 +114,16 @@ function create() {
 
     //  The score
     scoreString = 'Score: ';
-    scoreText = game.add.text(10, 10, scoreString + score, { font: '124px Arial', fill: '#fff' });
+    scoreText = game.add.text(10, 10, scoreString + score, { font: '72px Consolas', fill: '#fff' });
 
 
     //  Lives
     lives = game.add.group();
-    game.add.text(game.world.width - 100, 10, 'Health: ', { font: '24px Arial', fill: '#fff' });
+    game.add.text(game.world.width - 100, 10, 'Health: ', { font: '24px Consolas', fill: '#fff' });
 
 
     //  Text
-    stateText = game.add.text(game.world.centerX,game.world.centerY,' ', { font: '32px Arial', fill: '#fff' });
+    stateText = game.add.text(game.world.centerX,game.world.centerY,' ', { font: '32px Consolas', fill: '#fff' });
     stateText.anchor.setTo(0.5, 0.5);
     stateText.visible = false;
 
@@ -190,6 +195,22 @@ function update() {
         }
 
 
+        // Konami code?
+        if (konamiCode == true) {
+            konamiCode = false;
+
+            //player life up to 30
+            lives.callAll('revive');
+            for (let i = 3; i < 30; i++) {
+                let ship = lives.create(game.world.width - 150 - (60 * (i-3)), 60, 'ship');
+                ship.anchor.setTo(0.5, 0.5);
+                ship.angle = 0;
+                ship.alpha = 0.4;      
+            }
+
+            //reduce player delay
+            bulletDelay = 50;
+        }
 
 
         //  Firing?
@@ -211,6 +232,10 @@ function update() {
 
         game.physics.arcade.overlap(enemyBullets, player, enemyHitsPlayer, null, this);
 
+        if(addEnnemies == true && ennemiesDelay < game.time.now){
+            createAliens();
+            addEnnemies = false;
+        }
 
     }
 
@@ -269,7 +294,7 @@ function fireBullet() {
             //  And fire it
             bullet.reset(player.x+8, player.y);
             bullet.body.velocity.x = 400;
-            bulletTime = game.time.now + 200;
+            bulletTime = game.time.now + bulletDelay;
         }
     }
 
@@ -294,17 +319,29 @@ function collisionHandler (bullet, alien) {
     explosion.play('kaboom', 30, false, true);
 
     if (aliens.countLiving() == 0) {
-        player_win = true;
         score += 1000;
         scoreText.text = scoreString + score;
 
-        enemyBullets.callAll('kill',this);
-        stateText.text = " You Won!, \n Click to restart...";
-        stateText.visible = true;
-        music.stop();
+        if( bullet_speed < 500 ) {
+            //restart the game but keep the score and increase the bullet speed
 
-        // the "click to restart" handler
-        game.input.onTap.addOnce(restart,this);
+            // high up the bullet speed by 30%
+            bullet_speed = bullet_speed * 1.3;
+
+            //  And bring the aliens back from the dead :)
+            aliens.removeAll();
+            addEnnemies = true;
+            ennemiesDelay = game.time.now + 1500;
+        }
+        else {
+            player_win = true;
+            enemyBullets.callAll('kill',this);
+            stateText.text = " You Won!, \n Click to restart...";
+            stateText.visible = true;
+            music.stop();
+            // the "click to restart" handler
+            game.input.onTap.addOnce(restart,this);
+        }
     }
 }
 
@@ -315,21 +352,23 @@ function enemyHitsPlayer (player,bullet) {
 
     bullet.kill();
 
+    // create an explosion :)
+    let explosion = explosions.getFirstExists(false);
+    explosion.reset(player.body.x, player.body.y);
+    explosion.play('kaboom', 30, false, true);
+
+    if (player_win == true) return;
+
+    // reduce the life of the player
     live = lives.getFirstAlive();
 
     if (live) {
         live.kill();
     }
 
-    //  And create an explosion :)
-    let explosion = explosions.getFirstExists(false);
-    explosion.reset(player.body.x, player.body.y);
-    explosion.play('kaboom', 30, false, true);
-
-
     // PLAYER DIES
     // When the player dies
-    if (lives.countLiving() < 1 && !player_win) {
+    if (lives.countLiving() < 1 ) {
         player.kill();
         enemyBullets.callAll('kill');
 
@@ -365,7 +404,7 @@ function enemyFires() {
         // And fire the bullet from this enemy
         enemyBullet.reset(shooter.body.x, shooter.body.y);
 
-        game.physics.arcade.moveToObject(enemyBullet,player,120);
+        game.physics.arcade.moveToObject(enemyBullet,player,randomPourcentRange(bullet_speed,10));
         firingTimer = game.time.now + 2000;
     }
 
@@ -386,6 +425,8 @@ function restart() {
     score = 0;
     scoreText.text = scoreString + score;
     player_win = false;
+    bullet_speed = 120;
+    bulletDelay = 200;
 
     //resets the life count
     lives.callAll('revive');
@@ -398,3 +439,40 @@ function restart() {
     //hides the text
     stateText.visible = false;
 }
+
+function randomPourcentRange(value, range){
+    let val = value * (1 + 2*range*(Math.random() - 0.5)/100);
+    return val;
+}
+
+
+
+
+/******************************************
+ * 
+ *  KONAMI CODE IN KONAMI CODE EASTEREGG
+ * 
+ ******************************************/
+
+
+// suite de touche du konami code
+const pattern = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+// touche actuel
+let current = 0;
+
+let keyHandler = function (event) {
+
+
+    if (event.key === pattern[current]) {
+        current++;
+        if (pattern.length === current) {
+            current = 0;
+            konamiCode=true;
+        }
+    }
+    else {
+        current = 0;
+    }
+};
+
+document.addEventListener('keydown', keyHandler, false);
