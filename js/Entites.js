@@ -7,6 +7,8 @@ function Entite(name) {
     this.speed = generateParameters(name).speed;
     this.image = generateParameters(name).image;
     this.isAlive = true;
+
+
 }
 
 function generateParameters(name) {
