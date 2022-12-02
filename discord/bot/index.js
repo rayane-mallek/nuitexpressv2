@@ -87,67 +87,15 @@ client.on(Events.InteractionCreate, async interaction => {
         }
     }
 
-    function simulation(channel) {
-        let row = new ActionRowBuilder()
-            .addComponents(
-                new StringSelectMenuBuilder()
-                    .setCustomId('select')
-                    .setPlaceholder('Selection')
-                    .addOptions(
-                        {
-                            label: gameVariables[0],
-                            description: 'Une MST.',
-                        },
-                        {
-                            label: 'Versus',
-                            description: '',
-                        },
-                        {
-                            label: gameVariables[1],
-                            description: 'Un médicament.',
-                        },
-                    ),
-            );
+    async function simulation(channel) {
+        let embed;
+        if (Math.floor(Math.random() * 10) >= 9) {
+            embed = new EmbedBuilder().setTitle('La MST a remporté la partie !');
+        } else {
+            embed = new EmbedBuilder().setTitle('Le médicament a remporté la partie !');
+        }
 
-        collector.on('collect', async i => {
-            await i.update({ content: `Lancement de la partie`, components: [row] });
-        });
-
-        setTimeout(function(){
-            if (Math.floor(Math.random() * 10) >= 9) {
-                let virus = "Gagnant";
-                let med = "Perdant";
-            } else {
-                let virus = "Perdant";
-                let med = "Gagnant";
-            }
-
-            row = new ActionRowBuilder()
-            .addComponents(
-                new StringSelectMenuBuilder()
-                    .setCustomId('select')
-                    .setPlaceholder('Selection')
-                    .addOptions(
-                        {
-                            label: gameVariables[0],
-                            description: virus,
-                        },
-                        {
-                            label: 'Versus',
-                            description: '',
-                        },
-                        {
-                            label: gameVariables[1],
-                            description: med,
-                        },
-                    ),
-            );
-
-            collector.on('collect', async i => {
-                await i.update({ content: `Résultats`, components: [row] });
-            });
-         }, 5000);
-
+        await channel.send({ content: `Résultats`, embeds: [embed] });
 
     }
 
@@ -184,6 +132,10 @@ client.on(Events.InteractionCreate, async interaction => {
                     ),
             );
 
+        collector.on('collect', async i => {
+            await i.update({ content: `Lancement de la partie`, components: [row] });
+        });
+
         collector.on('end', collected => {});
 
         await command.execute(interaction);
@@ -210,7 +162,7 @@ function getHttpRequest() {
     xhr.send();
 }
 
-/*class Entite {
+class Entite {
     constructor(data) {
         this.name = data.name;
         this.class = 'Entite';
@@ -236,8 +188,6 @@ function startFightDiscord(channel, mst, medic) {
     let medicament = new Entite(medic);
     console.log(MST.getHealth());
     while (MST.getIsAlive() && medicament.getIsAlive()) {
-        //console.log("MST : " + MST.getIsAlive() + " Medicament : " + medicament.getIsAlive());
-        //console.log("MST : " + MST.getHealth() + " | Medicament : " + medicament.getHealth());
         let embedVirus = new EmbedBuilder()
             .setTitle('Simulation')
             .setDescription("Simulation en cours");
@@ -274,7 +224,7 @@ function startFightDiscord(channel, mst, medic) {
 
     }
 
-}*/
+}
 
 
 client.login(process.env.BOT_TOKEN);
