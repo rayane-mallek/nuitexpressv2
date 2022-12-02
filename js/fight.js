@@ -38,6 +38,7 @@ function startFight(mst, medic) {
     playFight(tabTotalMST, tabTotalMedic, tabEntiteMst, tabEntiteMedic);
 }
 
+
     function wait(ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
