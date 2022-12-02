@@ -32,17 +32,17 @@ client.on(Events.InteractionCreate, async interaction => {
                     .addOptions(
                         {
                             label: 'Preservatif',
-                            description: 'Preservatif masculin',
+                            description: 'Un moyen efficace de se protéger des MST.',
                             value: 'MED;Preservatif',
                         },
                         {
                             label: 'Contraception',
-                            description: 'Contraception',
+                            description: 'Les moyens de contraception ne protègent pas des MST.',
                             value: 'MED;contraception',
                         },
                         {
                             label: 'Antibiotique',
-                            description: 'Antibiotique',
+                            description: 'Les antibiotiques soigent les MST transmises par un virus.',
                             value: 'MED;antibiotique',
                         },
                     ),
@@ -116,17 +116,17 @@ client.on(Events.InteractionCreate, async interaction => {
                     .addOptions(
                         {
                             label: 'VIH',
-                            description: 'C\'est le sida',
+                            description: 'C\'est le virus responsable du sida.',
                             value: 'MST;vih',
                         },
                         {
                             label: 'Syphilis',
-                            description: 'Une autre mst',
+                            description: 'Une MST transmise par bactérie.',
                             value: 'MST;syphilis',
                         },
                         {
                             label: 'Hepatite',
-                            description: 'Encore une autre mst',
+                            description: 'Une MST transmise par un virus',
                             value: 'MST;Xx_Hepatite_xX',
                         },
                     ),
