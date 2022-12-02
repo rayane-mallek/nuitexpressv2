@@ -5,6 +5,7 @@ $(document).ready(function () {
     ;
 
 
+
     function createArray(name){
         let tab = [];
         jQuery("select[name='"+ name + "']").each(function() {

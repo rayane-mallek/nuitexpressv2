@@ -6,12 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
+
     <script src="js/main.js"></script>
     <script src="js/Entites.js"></script>
     <script src="js/fight.js"></script>
     <script src="js/fightDiscord.js"></script>
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/js/shepherd.min.js"></script>
     <script  src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
@@ -77,14 +76,14 @@
                     <h3> IST :  Les Infections Sexuellement Transmissibles</h3>
                     <p>
                         Les Infections Sexuellement Transmissibles (anciennement appelées Maladies Sexuellement Transmissibles [MST] ou maladies vénériennes) sont des infections provoquées par des microbes (virus, bactéries, parasites) qui peuvent être transmis plus ou moins facilement au cours de relations sexuelles.
-<br/>
-Les IST les plus connues sont : le VIH, la gonococcie, les chlamydiae, la syphilis, les condylomes, la vaginose, l'herpès génital, les hépatites.
-<br/>
-Le nombre de personnes infectées n'a pas diminué ces dernières années.
-<br/>
-Cependant, en 2018, le nombre de personnes ayant découvert leur séropositivité au VIH a été de 6155, soit une baisse significative par rapport à 2017. 56% des personnes ayant découvert leur séropositivité en 2018 ont été contaminées par rapports hétérosexuels, 40% par rapports sexuels entre hommes et 2% via un usage de drogues injectables.
-<br/>
-Le nombre d'infections à Chlamydia uro-génitales a augmenté de manière plus marquée chez les hommes mais le nombre de cas diagnostiqués est resté toujours plus important chez les femmes que chez les hommes.
+                        <br/>
+                        Les IST les plus connues sont : le VIH, la gonococcie, les chlamydiae, la syphilis, les condylomes, la vaginose, l'herpès génital, les hépatites.
+                        <br/>
+                        Le nombre de personnes infectées n'a pas diminué ces dernières années.
+                        <br/>
+                        Cependant, en 2018, le nombre de personnes ayant découvert leur séropositivité au VIH a été de 6155, soit une baisse significative par rapport à 2017. 56% des personnes ayant découvert leur séropositivité en 2018 ont été contaminées par rapports hétérosexuels, 40% par rapports sexuels entre hommes et 2% via un usage de drogues injectables.
+                        <br/>
+                        Le nombre d'infections à Chlamydia uro-génitales a augmenté de manière plus marquée chez les hommes mais le nombre de cas diagnostiqués est resté toujours plus important chez les femmes que chez les hommes.
                  </p>
                     <a href="https://www.sida-info-service.org/definition-ist/" target="_blank">Plus d'informations</a>
                 </div>
@@ -93,12 +92,19 @@ Le nombre d'infections à Chlamydia uro-génitales a augmenté de manière plus 
     </div>
 
 
+        <div>
+            <div class="PatternDark" ><input type="checkbox">Voulez vouz voir le titre ?</div>
+            <h1 class="darkPattern">Bienvenue sur VIH Simulator</h1>
+        </div>
 
+        <script>
 
-    <h1 class="hey">Bienvenue sur VIH Simulator</h1>
+        </script>
 
-
-    <h2>Choisir MST</h2>
+    <div>
+        <div class="PatternDark" ><input type="checkbox">Voulez vouz voir le sous-titre ?</div>
+        <h2 class="darkPattern">Choisir MST</h2>
+    </div>
     <div id="containerSelectMST">
         <select class="ui search dropdown" id="MST" name="mst">
             <option selected="selected" id="MST1" value="MST1">Papillomavirus</option>
@@ -176,7 +182,17 @@ document.getElementById("mySidebar").style.width = "0";
 document.getElementById("main").style.marginLeft = "0";
 }
 
-// document.getElementById("ist").addEventListener("click",toggleModalIST);
+document.addEventListener('click', function (e) {
+        if (e.target.type === 'checkbox') {
+            if (e.target.checked) {
+                e.target.parentNode.parentNode.lastChild.previousElementSibling.style.display = 'block';
+                e.target.parentNode.parentNode.lastChild.previousElementSibling.parentNode.firstChild.nextSibling.style.display = 'none';
+                } else {
+                    e.target.parentNode.style.display = 'none';
+                }
+            }
+
+        });
 
   </script>
   <script src="js/modal.js"></script>
