@@ -12,6 +12,14 @@ document.getElementById('addMST').addEventListener('click', function(e) {
   } catch {}
 })
 
+const maxTurn = document.getElementById('max_turn');
+maxTurn.addEventListener('change', function() {
+    if (isNaN(maxTurn.value) || maxTurn.value <= 0) {
+      maxTurn.value = "";
+      alert('Le champ "nombre de tours max" ne peut contenir que des nombres positifs.')
+    }
+})
+
 const tour = new Shepherd.Tour({
   useModalOverlay: true,
   defaultStepOptions: {
@@ -51,10 +59,25 @@ tour.addStep({
 });
 
 tour.addStep({
+  id: 'med-name',
+  text: 'Les champs des médicaments fonctionnent de la même façon que les virus.',
+  attachTo: {
+    element: '#medicament_choice',
+    on: 'right'
+  },
+  buttons: [
+    {
+      text: 'Next',
+      action: tour.next
+    }
+  ]
+});
+
+tour.addStep({
     id: 'virus-name',
-    text: 'Vous pouvez même nommer votre MST !',
+    text: 'Ce champ sert à définir le nombre de tours maximum.',
     attachTo: {
-      element: '#name_virus',
+      element: '#max_turn',
       on: 'bottom'
     },
     buttons: [
@@ -65,9 +88,10 @@ tour.addStep({
     ]
 });
 
+
 tour.addStep({
   id: 'battle-start',
-  text: 'Reproduisez les mêmes étapes que le virus pour ajouter un médicament au combat, puis lancez-le en appuyant ici !',
+  text: 'Une fois que tout est bon, lancez le combat en appuyant ici !',
   attachTo: {
     element: '#startButton',
     on: 'bottom'
