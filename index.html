@@ -164,17 +164,8 @@
 </body>
 <script>
 
-    document.addEventListener('click', function (e) {
-    if (e.target.type === 'checkbox') {
-        if (e.target.checked) {
-            e.target.parentNode.parentNode.lastChild.previousElementSibling.style.display = 'block';
-            e.target.parentNode.parentNode.lastChild.previousElementSibling.parentNode.firstChild.nextSibling.style.display = 'none';
-            } else {
-                e.target.parentNode.style.display = 'none';
-            }
-        }
 
-    });
+
 
 
     /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
