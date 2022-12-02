@@ -2,15 +2,58 @@
         "data": [
             {
                 "id": "1",
-                "name": "name1"
+                "name": "Xx_Hepatite_xX",
+                "class": "MST",
+                "health": 20,
+                "attack": 1,
+                "defense": 1,
+                "speed": 1,
+                "image": "assets/images/entites/virus.png"
             },
             {
                 "id": "2",
-                "name": "name2"
+                "name": "Turbo VIH",
+                "health": 10,
+                "attack": 10,
+                "defense": 10,
+                "speed": 10,
+                "image": "assets/images/entites/virus.png"
             },
             {
                 "id": "3",
-                "name": "name3"
+                "name": "Mega Sida",
+                "health": 10,
+                "attack": 10,
+                "defense": 10,
+                "speed": 10,
+                "image": "assets/images/entites/Sida.png"
+            },
+            {
+                "id": "4",
+                "name": "Antibiotique",
+                "health": 500,
+                "attack": 5,
+                "defense": 5,
+                "speed": 5,
+                "image": "assets/images/entites/medic.png"
+            },
+            {
+                "id": "5",
+                "name": "Preservatif",
+                "health": 1,
+                "attack": 9999,
+                "defense": 9999,
+                "speed": 1,
+                "image": "assets/images/entites/medic.png"
+            },
+            {
+                "id": "6",
+                "name": "Contraception",
+                "health": 100,
+                "attack": 10,
+                "defense": 10,
+                "speed": 10,
+                "image": "assets/images/entites/medic.png"
             }
         ]
     }
