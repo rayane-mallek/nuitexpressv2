@@ -4,19 +4,18 @@ $(document).ready(function () {
     .dropdown()
     ;
 
-    let mst = $('#' + $('#MST').val()).text();
-    let medic = $('#' + $('#medicament').val()).text();
-    let MST = new Entite(mst);
-    let medicament = new Entite(medic);
-    updateFightInfos(MST, medicament);
-    generateModels(MST, medicament)
 
+    function createArray(name){
+        let tab = [];
+        jQuery("select[name='"+ name + "']").each(function() {
+            tab.push($('#' + $(this).val()).text());
+        })
+        return tab;
+    }
 
 
     $('#startButton').click(function () {
-        let mst = $('#' + $('#MST').val()).text();
-        let medicament = $('#' + $('#medicament').val()).text();
-        startFight(mst, medicament);
+        startFight(createArray('mst'), createArray('medic'));
 
     });
 
@@ -25,8 +24,6 @@ $(document).ready(function () {
         let medic = $('#' + $('#medicament').val()).text();
         let MST = new Entite(mst);
         let medicament = new Entite(medic);
-        updateFightInfos(MST, medicament);
-        generateModels(MST, medicament)
     });
 
     $('#addMST').click(function () {
@@ -34,9 +31,17 @@ $(document).ready(function () {
         $('.ui.dropdown')
         .dropdown()
         ;
+        createArray('mst');
     });
 
-    
+    $('#addMedic').click(function () {
+        $('#medicament').clone().addClass('ui search dropdown').appendTo('#containerSelectMedic');
+        $('.ui.dropdown')
+        .dropdown()
+        ;
+        createArray('medic');
+    });
+
     
 
 
@@ -44,4 +49,3 @@ $(document).ready(function () {
 
 });
 
-let i = 2;

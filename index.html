@@ -32,7 +32,7 @@
       
     <h2>Choisir MST</h2>
     <div id="containerSelectMST">
-        <select class="ui search dropdown" id="MST">
+        <select class="ui search dropdown" id="MST" name="mst">
             <option selected="selected" id="MST1" value="MST1">Xx_Hepatite_xX</option>
             <option id="MST2"value="MST2">Turbo VIH</option>
             <option id="MST3"value="MST3">Mega Sida</option>
@@ -43,16 +43,18 @@
       </button>
 
     <h2>Choisir Medicaments</h2>
-    <select class="ui search dropdown" name="medicament1" id="medicament">
+    <div id="containerSelectMedic">
+    <select class="ui search dropdown" name="medic" id="medicament">
         <option selected="selected" id="medicament1" value="medicament1">Antibiotique</option>
         <option id="medicament2" value="medicament2">Preservatif</option>
         <option id="medicament3" value="medicament3">Contraception</option>
     </select>
-    <button class="ui button">
+    </div>
+    <button id="addMedic" class="ui button">
         Ajouter un medicament
     </button>
       <h2>Choisir le nombre de tours max</h2>
-      <input id="name_virus" />
+      <input class="maxTurn" id="#name_virus" />
 
       <br><br>
     <button id="startButton">Start Fight</button>
@@ -61,7 +63,7 @@
     <div id="fight">
         <div id="fightInfos">
             <div id="MST1">
-                <h3 id="MSTname">MST 1</h3>
+                <h3 id="MSTname">MST</h3>
                 <p>Points de vie : <span id="MST1Health"></span></p>
                 <p>Points d'attaque : <span id="MST1Attack"></span></p>
                 <p>Points de défense : <span id="MST1Defense"></span></p>
@@ -69,7 +71,7 @@
             </div>
             
             <div id="medicament1">
-                <h3 id="medicname">Medicament 1</h3>
+                <h3 id="medicname">Medidcaments</h3>
                 <p>Points de vie : <span id="medicament1Health"></span></p>
                 <p>Points d'attaque : <span id="medicament1Attack"></span></p>
                 <p>Points de défense : <span id="medicament1Defense"></span></p>
