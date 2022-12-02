@@ -21,6 +21,9 @@
 #CampMST{
     position: relative;   
 }
+.PatternDark{
+    display: none;
+}
 
 body {
     margin: 0px;
