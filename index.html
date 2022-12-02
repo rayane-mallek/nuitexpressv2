@@ -14,7 +14,7 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/js/shepherd.min.js"></script>
-    <script  src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="semantic/semantic.min.js"></script>
 
 
@@ -74,7 +74,7 @@
                 <span class="close-button2">×</span>
                 <h1>Qu'est ce qu'une IST ?</h1>
                 <div>
-                    <h3> IST :  Les Infections Sexuellement Transmissibles</h3>
+                    <h3> IST : Les Infections Sexuellement Transmissibles</h3>
                     <p>
                         Les Infections Sexuellement Transmissibles (anciennement appelées Maladies Sexuellement Transmissibles [MST] ou maladies vénériennes) sont des infections provoquées par des microbes (virus, bactéries, parasites) qui peuvent être transmis plus ou moins facilement au cours de relations sexuelles.
                         <br/>
@@ -113,31 +113,14 @@
             <option id="MST3"value="MST3">VIH</option>
         </select>
     </div>
-    <button id="addMST" class="ui button">
-        Ajouter une MST
-      </button>
-
-    <h2 id="medicament_choice">Choisir Medicaments</h2>
-    <div id="containerSelectMedic">
-    <select class="ui search dropdown" name="medic" id="medicament">
-        <option selected="selected" id="medicament1" value="medicament1">Vaccin</option>
-        <option id="medicament2" value="medicament2">Preservatif</option>
-        <option id="medicament3" value="medicament3">Contraception</option>
-    </select>
+    <div class="start-box">
+        <button id="startButton">Start Fight</button>
     </div>
-    <button id="addMedic" class="ui button">
-        Ajouter un medicament
-    </button>
-      <h2>Choisir le nombre de tours max</h2>
-      <input class="maxTurn" id="max_turn" />
-
-      <br><br>
-    <button id="startButton">Start Fight</button>
 
     <h2>Combat</h2>
     <div id="fight">
-        <div id="fightInfos">
-            <div id="MST1">
+        <div class="fight-container" id="fightInfos">
+            <div class="infos-box" id="MST1">
                 <h3 id="MSTname">MST</h3>
                 <p>Points de vie : <span id="MST1Health"></span></p>
                 <p>Points d'attaque : <span id="MST1Attack"></span></p>
@@ -145,7 +128,7 @@
                 <p>Vitesse : <span id="MST1Speed"></span></p>
             </div>
 
-            <div id="medicament1">
+            <div class="infos-box" id="medicament1">
                 <h3 id="medicname">Medicaments</h3>
                 <p>Points de vie : <span id="medicament1Health"></span></p>
                 <p>Points d'attaque : <span id="medicament1Attack"></span></p>
@@ -162,7 +145,7 @@
         <h1>Gagnant : </h1>
         <p id="winner"></p>
     </div>
-
+    </div>
 </body>
 <script>
     /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
