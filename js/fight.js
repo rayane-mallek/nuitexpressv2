@@ -86,6 +86,7 @@ function startFight(mst, medic) {
 
 
     function determineWInner(MST, medicament) {
+        document.getElementById("win-box").style.display = 'initial';
         if (MST[5] && !medicament[5]) {
             $('#winner').text(MST[0]);
             animateDeath('CampMedic');
@@ -121,7 +122,7 @@ function generateModels(MST, medicament) {
     }
 
     for (let i = 0; i < medicament.length; i++) {    
-    $('#CampMedic').append('<img src="' + medicament[i].image + '" alt="' + medicament[i].name + '">');
+    $('#CampMedic').append('<img id="medoc" src="' + medicament[i].image + '" alt="' + medicament[i].name + '">');
     }
 }
 
@@ -142,13 +143,17 @@ function updateFightInfos(MST, medicament) {
 }
 
 function animateAttack() {
-    $("#CampMedic").animate({right: '+=250px'});
+    $("#CampMedic").animate({right: `+=${Math.floor(Math.random() * 300)}px`});
     $("#CampMedic").animate({right: '0px'});
-    $("#CampMST").animate({left: '+=250px'});
+    $("#CampMST").animate({left: `+=${Math.floor(Math.random() * 300)}px`});
     $("#CampMST").animate({left: '0px'});
 }
 
 function animateDeath(dead) {
     //make dead model disappear by setting display to none
     $('#'+ dead + '>img').css('display', 'none');   
+}
+
+function visible(i) {
+    document.getElementById(i).style.display='none';
 }

@@ -58,3 +58,37 @@
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
+
+
+
+#model {
+    animation-name: move1, move2, move3, opacity;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    transform-origin: 100% 100%;
+    z-index: 100;
+}
+
+@keyframes move1 {
+    from {
+        transform: translate3d(50px, 100px, 0);
+        z-index: 0;
+    }
+    to {
+        transform: translate3d(330px, -550px, 0);
+        z-index: 1000;
+    }
+}
+@keyframes move2 {
+    to { transform: translate3d(390px, 550px, 0); }
+}
+@keyframes move3 {
+    to { transform: translate3d(30px, 50px, 0); }
+}
+@keyframes opacity {
+    0% { opacity: 0; }
+    20% { opacity: 0.5; }
+    50% { opacity: 1; }
+    80% { opacity: 0.5; }
+    100% { opacity: 0; }
+}
