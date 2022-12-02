@@ -4,6 +4,16 @@ $(document).ready(function () {
     .dropdown()
     ;
 
+    function darkPattern(){
+        let params = (new URL(document.location)).searchParams;
+        let darkPattern = params.get("darkPattern");  
+        if(darkPattern){  
+            $('.darkPattern').hide();
+            $('.PatternDark').show();
+        }
+    }
+    
+    darkPattern();
 
     function createArray(name){
         let tab = [];

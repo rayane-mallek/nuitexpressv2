@@ -23,6 +23,9 @@ html {
 #CampMST{
     position: relative;   
 }
+.PatternDark{
+    display: none;
+}
 
 .camp {
     display: flex;
