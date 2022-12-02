@@ -16,8 +16,6 @@ Plongez dans une présentation des différents champs à saisir pour lancer vos 
 Haut haut bas bas gauche droite gauche droite B A.
 Vidéo :
 
-### Easter egg
-
 ### SFEIR - Création d'un bot discord
 Rendez-vous sur le serveur donné plus haut pour le tester. Il vous suffira de taper la commande `/jouer` et de suivre les instructions !
 
