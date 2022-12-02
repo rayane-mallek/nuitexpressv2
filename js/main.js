@@ -29,6 +29,13 @@ $(document).ready(function () {
         generateModels(MST, medicament)
     });
 
+    $('#addMST').click(function () {
+        $('#MST').clone().addClass('ui search dropdown').appendTo('#containerSelectMST');
+        $('.ui.dropdown')
+        .dropdown()
+        ;
+    });
+
     
     
 

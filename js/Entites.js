@@ -40,7 +40,7 @@ function generateParameters(name) {
             parameters.attack = 10;
             parameters.defense = 10;
             parameters.speed = 10;
-            parameters.image = 'assets/images/entites/virus.png';
+            parameters.image = 'assets/images/entites/Sida.png';
             break;
         case 'Antibiotique':
             parameters.class = 'Medicament';

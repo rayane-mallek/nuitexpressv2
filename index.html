@@ -29,7 +29,7 @@
     <h1 class="hey">Bienvenue sur VIH Simulator</h1>
 
       
-    <h2>Choisir MST 1</h2>
+    <h2>Choisir MST</h2>
     <div id="containerSelectMST">
         <select class="ui search dropdown" id="MST">
             <option selected="selected" id="MST1" value="MST1">Xx_Hepatite_xX</option>
@@ -40,9 +40,8 @@
     <button id="addMST" class="ui button">
         Ajouter une MST
       </button>
-    <input id="name_virus" />
 
-    <h2>Choisir Medicament 1</h2>
+    <h2>Choisir Medicaments</h2>
     <select class="ui search dropdown" name="medicament1" id="medicament">
         <option selected="selected" id="medicament1" value="medicament1">Antibiotique</option>
         <option id="medicament2" value="medicament2">Preservatif</option>
@@ -50,7 +49,10 @@
     </select>
     <button class="ui button">
         Ajouter un medicament
-      </button>
+    </button>
+      <h2>Choisir le nombre de tours max</h2>
+      <input id="name_virus" />
+
       <br><br>
     <button id="startButton">Start Fight</button>
 
@@ -64,6 +66,7 @@
                 <p>Points de défense : <span id="MST1Defense"></span></p>
                 <p>Vitesse : <span id="MST1Speed"></span></p>
             </div>
+            
             <div id="medicament1">
                 <h3 id="medicname">Medicament 1</h3>
                 <p>Points de vie : <span id="medicament1Health"></span></p>
