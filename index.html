@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
-
     <script src="js/main.js"></script>
     <script src="js/Entites.js"></script>
     <script src="js/fight.js"></script>
     <script src="js/fightDiscord.js"></script>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/js/shepherd.min.js"></script>
@@ -31,93 +31,108 @@
 </head>
 <body>
 
-    <div id="mySidebar" class="sidebar">
-        <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
-        <!-- <button id="example">Revoir l'info sur le Sida</button> -->
-        <a id="ist">Info sur une IST</a>
-        <a id="example">Info sur le Sida</a>
-    </div>
+<div id="mySidebar" class="sidebar">
+    <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+    <!-- <button id="example">Revoir l'info sur le Sida</button> -->
+    <a id="ist">Info sur une IST</a>
+    <a id="example">Info sur le Sida</a>
+</div>
 
-    <div id="main">
-        <button id="open-btn" class="openbtn" onclick="openNav()">></button>
+<div id="main">
+    <button id="open-btn" class="openbtn" onclick="openNav()">></button>
 
-        <!-- <button id="example">Revoir l'info sur le Sida</button> -->
-        <div class="modal">
-            <div class="modal-content">
-                <span class="close-button">×</span>
-                <h1>Avez-vous le Sida ?</h1>
-                <div>
-                    <h3> SIGNIFIE VIH ? SIDA ? VIH SIGNIFIE VIRUS DE L'IMMUNODÉFICIENCE HUMAINE</h3>
-                    <p>
-                        Lorsqu'une personne est infectée, le VIH attaque progressivement les CD4 (ou T4)
-                        c'est-à-dire certaines cellules qui coordonnent l'immunité (c'est-à-dire les défenses
-                        de l'organisme contre les microbes).
-                    </p>
+    <!-- <button id="example">Revoir l'info sur le Sida</button> -->
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close-button">×</span>
+            <h1>Avez-vous le Sida ?</h1>
+            <div>
+                <h3> SIGNIFIE VIH ? SIDA ? VIH SIGNIFIE VIRUS DE L'IMMUNODÉFICIENCE HUMAINE</h3>
+                <p>
+                    Lorsqu'une personne est infectée, le VIH attaque progressivement les CD4 (ou T4)
+                    c'est-à-dire certaines cellules qui coordonnent l'immunité (c'est-à-dire les défenses
+                    de l'organisme contre les microbes).
+                </p>
 
-                    <p><strong>SIDA</strong>
-                        SIDA SIGNIFIE <strong>S</strong>YNDROME D'<strong>I</strong>MMUNO <strong>D</strong>ÉFICIENCE <strong>A</strong>CQUISE</p>
-                    <p>
-                        Au fil du temps et en l'absence de traitement efficace, les cellules coordonnant 
-                        l'immunité peuvent devenir de moins en moins nombreuses et l'immunité risque d'être
-                            moins efficace. Des maladies de plus en plus graves risquent alors se développer. 
-                            Certaines maladies sont appelées "maladies opportunistes" parce qu'elles profitent de 
-                            la diminution de l'immunité pour se développer. Lorsqu'une personne a une ou plusieurs 
-                            maladies de ce type, on dit qu'elle a le SIDA.
-                    </p>
-                    <a href="https://www.sida-info-service.org/que-signifie-vih-sida/" target="_blank">Plus d'informations</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal2">
-            <div class="modal-content">
-                <span class="close-button2">×</span>
-                <h1>Qu'est ce qu'une IST ?</h1>
-                <div>
-                    <h3> IST : Les Infections Sexuellement Transmissibles</h3>
-                    <p>
-                        Les Infections Sexuellement Transmissibles (anciennement appelées Maladies Sexuellement Transmissibles [MST] ou maladies vénériennes) sont des infections provoquées par des microbes (virus, bactéries, parasites) qui peuvent être transmis plus ou moins facilement au cours de relations sexuelles.
-                        <br/>
-                        Les IST les plus connues sont : le VIH, la gonococcie, les chlamydiae, la syphilis, les condylomes, la vaginose, l'herpès génital, les hépatites.
-                        <br/>
-                        Le nombre de personnes infectées n'a pas diminué ces dernières années.
-                        <br/>
-                        Cependant, en 2018, le nombre de personnes ayant découvert leur séropositivité au VIH a été de 6155, soit une baisse significative par rapport à 2017. 56% des personnes ayant découvert leur séropositivité en 2018 ont été contaminées par rapports hétérosexuels, 40% par rapports sexuels entre hommes et 2% via un usage de drogues injectables.
-                        <br/>
-                        Le nombre d'infections à Chlamydia uro-génitales a augmenté de manière plus marquée chez les hommes mais le nombre de cas diagnostiqués est resté toujours plus important chez les femmes que chez les hommes.
-                 </p>
-                    <a href="https://www.sida-info-service.org/definition-ist/" target="_blank">Plus d'informations</a>
-                </div>
+                <p><strong>SIDA</strong>
+                    SIDA SIGNIFIE <strong>S</strong>YNDROME D'<strong>I</strong>MMUNO <strong>D</strong>ÉFICIENCE <strong>A</strong>CQUISE</p>
+                <p>
+                    Au fil du temps et en l'absence de traitement efficace, les cellules coordonnant
+                    l'immunité peuvent devenir de moins en moins nombreuses et l'immunité risque d'être
+                    moins efficace. Des maladies de plus en plus graves risquent alors se développer.
+                    Certaines maladies sont appelées "maladies opportunistes" parce qu'elles profitent de
+                    la diminution de l'immunité pour se développer. Lorsqu'une personne a une ou plusieurs
+                    maladies de ce type, on dit qu'elle a le SIDA.
+                </p>
+                <a href="https://www.sida-info-service.org/que-signifie-vih-sida/" target="_blank">Plus d'informations</a>
             </div>
         </div>
     </div>
 
-
-        <div>
-            <div class="PatternDark" ><input type="checkbox">Voulez vouz voir le titre ?</div>
-            <h1 class="darkPattern">Bienvenue sur VIH Simulator</h1>
+    <div class="modal2">
+        <div class="modal-content">
+            <span class="close-button2">×</span>
+            <h1>Qu'est ce qu'une IST ?</h1>
+            <div>
+                <h3> IST : Les Infections Sexuellement Transmissibles</h3>
+                <p>
+                    Les Infections Sexuellement Transmissibles (anciennement appelées Maladies Sexuellement Transmissibles [MST] ou maladies vénériennes) sont des infections provoquées par des microbes (virus, bactéries, parasites) qui peuvent être transmis plus ou moins facilement au cours de relations sexuelles.
+                    <br/>
+                    Les IST les plus connues sont : le VIH, la gonococcie, les chlamydiae, la syphilis, les condylomes, la vaginose, l'herpès génital, les hépatites.
+                    <br/>
+                    Le nombre de personnes infectées n'a pas diminué ces dernières années.
+                    <br/>
+                    Cependant, en 2018, le nombre de personnes ayant découvert leur séropositivité au VIH a été de 6155, soit une baisse significative par rapport à 2017. 56% des personnes ayant découvert leur séropositivité en 2018 ont été contaminées par rapports hétérosexuels, 40% par rapports sexuels entre hommes et 2% via un usage de drogues injectables.
+                    <br/>
+                    Le nombre d'infections à Chlamydia uro-génitales a augmenté de manière plus marquée chez les hommes mais le nombre de cas diagnostiqués est resté toujours plus important chez les femmes que chez les hommes.
+                </p>
+                <a href="https://www.sida-info-service.org/definition-ist/" target="_blank">Plus d'informations</a>
+            </div>
         </div>
-
-        <script>
-
-        </script>
-
-    <div>
-        <div class="PatternDark" ><input type="checkbox">Voulez vouz voir le sous-titre ?</div>
-        <h2 class="darkPattern">Choisir MST</h2>
     </div>
-    <div id="containerSelectMST">
-        <select class="ui search dropdown" id="MST" name="mst">
-            <option selected="selected" id="MST1" value="MST1">Papillomavirus</option>
-            <option id="MST2"value="MST2">Syphilis</option>
-            <option id="MST3"value="MST3">VIH</option>
-        </select>
+</div>
+
+
+
+<div class="main-container">
+    <div id="top-main">
+    <h1 class="hey">Bienvenue sur VIH Simulator</h1>
+    <div class="container">
+        <div class="main-content">
+            <h2>Choisir MST</h2>
+            <button id="addMST" class="ui button">
+                Ajouter une MST
+            </button>
+            <div class="select-container" id="containerSelectMST">
+                <select class="ui search dropdown" id="MST" name="mst">
+                    <option selected="selected" id="MST1" value="MST1">Papillomavirus</option>
+                    <option id="MST2"value="MST2">Syphilis</option>
+                    <option id="MST3"value="MST3">VIH</option>
+                </select>
+            </div>
+        </div>
+        <div class="nb-tour">
+            <h2>Nombre de tours</h2>
+            <input class="maxTurn" placeholder="1" id="max_turn" />
+        </div>
+        <div class="main-content">
+            <h2 id="medicament_choice">Choisir Medicaments</h2>
+            <button id="addMedic" class="ui button">
+                Ajouter un medicament
+            </button>
+            <div class="select-container" id="containerSelectMedic">
+                <select class="ui search dropdown" name="medic" id="medicament">
+                    <option selected="selected" id="medicament1" value="medicament1">Vaccin</option>
+                    <option id="medicament2" value="medicament2">Preservatif</option>
+                    <option id="medicament3" value="medicament3">Contraception</option>
+                </select>
+            </div>
+        </div>
     </div>
     <div class="start-box">
-        <button id="startButton">Start Fight</button>
+        <a href="#terrain" id="startButton">Start Fight</a>
     </div>
-
-    <h2>Combat</h2>
+</div>
     <div id="fight">
         <div class="fight-container" id="fightInfos">
             <div class="infos-box" id="MST1">
@@ -136,52 +151,44 @@
                 <p>Vitesse : <span id="medicament1Speed"></span></p>
             </div>
         </div>
-        <div id="terrain">
-            <div id="CampMST">
+        <div class="arena" id="terrain">
+            <div class="camp" id="CampMST">
             </div>
-            <div id="CampMedic">
+            <div class="camp" id="CampMedic">
             </div>
         </div>
-        <h1>Gagnant : </h1>
-        <p id="winner"></p>
+        <div onclick="visible('win-box')" id="win-box">
+            <p id="winner"></p>
+            <p>a gagné</p>
+        </div>
     </div>
-    </div>
+</div>
 </body>
 <script>
     /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
-function openNav() {
-document.getElementById("open-btn").innerText = " < ";
-document.getElementById("open-btn").setAttribute('onclick','closeNav()');
+    function openNav() {
+        document.getElementById("open-btn").innerText = " < ";
+        document.getElementById("open-btn").setAttribute('onclick','closeNav()');
 
-document.getElementById("mySidebar").style.width = "200px";
-document.getElementById("main").style.marginLeft = "200px";
-}
+        document.getElementById("mySidebar").style.width = "200px";
+        document.getElementById("main").style.marginLeft = "200px";
+    }
 
-/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
-function closeNav() {
+    /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+    function closeNav() {
 
-document.getElementById("open-btn").innerText = " > ";
-document.getElementById("open-btn").setAttribute('onclick','openNav()');
-document.getElementById("mySidebar").style.width = "0";
-document.getElementById("main").style.marginLeft = "0";
-}
+        document.getElementById("open-btn").innerText = " > ";
+        document.getElementById("open-btn").setAttribute('onclick','openNav()');
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+    }
 
-document.addEventListener('click', function (e) {
-        if (e.target.type === 'checkbox') {
-            if (e.target.checked) {
-                e.target.parentNode.parentNode.lastChild.previousElementSibling.style.display = 'block';
-                e.target.parentNode.parentNode.lastChild.previousElementSibling.parentNode.firstChild.nextSibling.style.display = 'none';
-                } else {
-                    e.target.parentNode.style.display = 'none';
-                }
-            }
+    // document.getElementById("ist").addEventListener("click",toggleModalIST);
 
-        });
+</script>
+<script src="js/modal.js"></script>
 
-  </script>
-  <script src="js/modal.js"></script>
-  
-  <script src="js/konami_code.js"></script>
-  <!-- <script src="js/modal.js"></script> -->
+<script src="js/konami_code.js"></script>
+<!-- <script src="js/modal.js"></script> -->
 </html>
 

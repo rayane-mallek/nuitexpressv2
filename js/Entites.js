@@ -22,10 +22,10 @@ function generateParameters(name) {
     switch (name) {
         case 'Papillomavirus':
             parameters.class = 'MST';
-            parameters.health = 20;
-            parameters.attack = 1;
+            parameters.health = 40;
+            parameters.attack = 7;
             parameters.defense = 1;
-            parameters.speed = 1;
+            parameters.speed = 10;
             parameters.image = 'assets/images/entites/Papillomavirus.png';
             break;
         case 'Syphilis':
@@ -33,15 +33,15 @@ function generateParameters(name) {
             parameters.health = 10;
             parameters.attack = 10;
             parameters.defense = 10;
-            parameters.speed = 10;
+            parameters.speed = 14;
             parameters.image = 'assets/images/entites/Syphilis.png';
             break;
         case 'VIH':
             parameters.class = 'MST';
-            parameters.health = 10;
-            parameters.attack = 10;
+            parameters.health = 50;
+            parameters.attack = 50;
             parameters.defense = 10;
-            parameters.speed = 10;
+            parameters.speed = 5;
             parameters.image = 'assets/images/entites/VIH.png';
             break;
         case 'Vaccin':

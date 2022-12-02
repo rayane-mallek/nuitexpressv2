@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 #fightInfos{
     display: flex;
     justify-content: space-between;
@@ -14,9 +18,7 @@
     margin: 0 5vh;
 }
 #CampMedic{
-    display: flex;
     position: relative;
-    justify-content: center;
 }
 #CampMST{
     position: relative;   
@@ -25,8 +27,16 @@
     display: none;
 }
 
+.camp {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: flex-end;
+}
+
 body {
     margin: 0px;
+    background: #575757;
 }
 
 .main-container {
@@ -93,16 +103,43 @@ body {
  }
 
 .infos-box {
-    position: sticky;
+    position: absolute;
     z-index: 89;
-    background: rgba(182, 182, 182, 0.13);
+    background: #ffffff;
     padding: 20px;
     border-radius: 10px;
-    backdrop-filter: blur(38px);
 }
-#MST1 { left: 20px; bottom: 100px}
-#medicament1 { right: 20px;bottom: 100px }
+#MST1 { left: 20px; bottom: -55vh}
+#medicament1 { right: 20px;bottom: -55vh }
 
 .fight-container {
     margin: 20px;
+}
+
+
+#win-box {
+    display: none;
+    font-size: 80px;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    text-align: center;
+    transform: rotate(8deg) translate(50%, -50%);
+    background: #ffffff;
+    border-radius: 35px;
+    padding: 20px;
+}
+
+#win-box p {
+    margin: 0px;
+}
+
+.arena {
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../assets/images/fond.gif");
+}
+#top-main {
+    height: 100vh;
 }
