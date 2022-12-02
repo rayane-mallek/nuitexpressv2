@@ -88,14 +88,65 @@ client.on(Events.InteractionCreate, async interaction => {
     }
 
     function simulation(channel) {
-        getHttpRequest();
-        let virusJson = dataGet.data.find(item => item.name === gameVariables[0])
-        let medJson = dataGet.data.find(item => item.name === gameVariables[1])
-        let i = 0;
-        while (virusJson.health > 0 || medJson.health > 0) {
+        let row = new ActionRowBuilder()
+            .addComponents(
+                new StringSelectMenuBuilder()
+                    .setCustomId('select')
+                    .setPlaceholder('Selection')
+                    .addOptions(
+                        {
+                            label: gameVariables[0],
+                            description: 'Une MST.',
+                        },
+                        {
+                            label: 'Versus',
+                            description: '',
+                        },
+                        {
+                            label: gameVariables[1],
+                            description: 'Un médicament.',
+                        },
+                    ),
+            );
 
-            startFightDiscord(channel, virusJson, medJson);
-        }
+        collector.on('collect', async i => {
+            await i.update({ content: `Lancement de la partie`, components: [row] });
+        });
+
+        setTimeout(function(){
+            if (Math.floor(Math.random() * 10) >= 9) {
+                let virus = "Gagnant";
+                let med = "Perdant";
+            } else {
+                let virus = "Perdant";
+                let med = "Gagnant";
+            }
+
+            row = new ActionRowBuilder()
+            .addComponents(
+                new StringSelectMenuBuilder()
+                    .setCustomId('select')
+                    .setPlaceholder('Selection')
+                    .addOptions(
+                        {
+                            label: gameVariables[0],
+                            description: virus,
+                        },
+                        {
+                            label: 'Versus',
+                            description: '',
+                        },
+                        {
+                            label: gameVariables[1],
+                            description: med,
+                        },
+                    ),
+            );
+
+            collector.on('collect', async i => {
+                await i.update({ content: `Résultats`, components: [row] });
+            });
+         }, 5000);
 
 
     }
@@ -133,10 +184,6 @@ client.on(Events.InteractionCreate, async interaction => {
                     ),
             );
 
-        collector.on('collect', async i => {
-            await i.update({ content: `Lancement de la partie`, components: [row] });
-        });
-
         collector.on('end', collected => {});
 
         await command.execute(interaction);
@@ -163,7 +210,7 @@ function getHttpRequest() {
     xhr.send();
 }
 
-class Entite {
+/*class Entite {
     constructor(data) {
         this.name = data.name;
         this.class = 'Entite';
@@ -227,7 +274,7 @@ function startFightDiscord(channel, mst, medic) {
 
     }
 
-}
+}*/
 
 
 client.login(process.env.BOT_TOKEN);
