@@ -36,7 +36,7 @@ html {
 
 body {
     margin: 0px;
-    background: #f1f1f1;
+    background: #575757;
 }
 
 .main-container {
@@ -125,7 +125,7 @@ body {
     right: 50%;
     text-align: center;
     transform: rotate(8deg) translate(50%, -50%);
-    background: #ffffff
+    background: #ffffff;
     border-radius: 35px;
     padding: 20px;
 }

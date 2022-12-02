@@ -86,6 +86,7 @@ function startFight(mst, medic) {
 
 
     function determineWInner(MST, medicament) {
+        document.location.href="#top-main";
         document.getElementById("win-box").style.display = 'initial';
         if (MST[5] && !medicament[5]) {
             $('#winner').text(MST[0]);
