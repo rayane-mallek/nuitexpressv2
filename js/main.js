@@ -17,7 +17,7 @@ $(document).ready(function () {
         let mst = $('#' + $('#MST').val()).text();
         let medicament = $('#' + $('#medicament').val()).text();
         startFight(mst, medicament);
-        
+
     });
 
     $('#MST, #medicament').change(function () {
@@ -40,4 +40,8 @@ $(document).ready(function () {
     
 
 
+
+
 });
+
+let i = 2;
