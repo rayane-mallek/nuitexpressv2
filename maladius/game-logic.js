@@ -1,5 +1,5 @@
 // this generates the canvas tag on index.html with width/height attributes
-var game = new Phaser.Game(900, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render });
+let game = new Phaser.Game(900, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render });
 
 function preload() {
 
@@ -18,25 +18,26 @@ function preload() {
     game.load.audio('sfx_fire', 'audio/fire.wav');
     game.load.audio('sfx_player_hit', 'audio/player-hit.wav');
 }
-var player;
-var aliens;
-var bullets;
-var bulletTime = 0;
-var cursors;
-var fireButton;
-var explosions;
-var starfield;
-var score = 0;
-var scoreString = '';
-var scoreText;
-var lives;
-var enemyBullet;
-var firingTimer = 0;
-var stateText;
-var livingEnemies = [];
-var music; 
-var sfx_fire;
-var sfx_enemy_die;
+let player;
+let aliens;
+let bullets;
+let bulletTime = 0;
+let cursors;
+let fireButton;
+let explosions;
+let starfield;
+let score = 0;
+let scoreString = '';
+let scoreText;
+let lives;
+let enemyBullet;
+let firingTimer = 0;
+let stateText;
+let livingEnemies = [];
+let music; 
+let sfx_fire;
+let sfx_enemy_die;
+let player_win = false;
 
 function create() {
 
@@ -122,11 +123,11 @@ function create() {
     stateText.visible = false;
 
 
-    for (var i = 0; i < 3; i++) {
+    for (let i = 0; i < 3; i++) {
 
 
 
-        var ship = lives.create(game.world.width - 150 + (60 * i), 60, 'ship');
+        let ship = lives.create(game.world.width - 150 + (60 * i), 60, 'ship');
         ship.anchor.setTo(0.5, 0.5);
         ship.angle = 0;
         ship.alpha = 0.4;
@@ -216,9 +217,9 @@ function update() {
 }
 
 function createAliens() {
-    for (var y = 0; y < 3; y++) {
-        for (var x = 0; x < 5; x++) {
-            var alien = aliens.create(x * 48, y * 50, 'invader');
+    for (let y = 0; y < 3; y++) {
+        for (let x = 0; x < 5; x++) {
+            let alien = aliens.create(x * 48, y * 50, 'invader');
             alien.anchor.setTo(0.5, 0.5);
             alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
             alien.play('fly');
@@ -230,7 +231,7 @@ function createAliens() {
 
 
     //  Start the invaders moving. Notice we're moving the Group they belong to, rather than the invaders directly.
-    var tween = game.add.tween(aliens).to( { x: 400 }, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
+    let tween = game.add.tween(aliens).to( { x: 400 }, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
 
 
     //  When the tween loops it calls descend
@@ -288,11 +289,12 @@ function collisionHandler (bullet, alien) {
     scoreText.text = scoreString + score;
 
     //  And create an explosion :)
-    var explosion = explosions.getFirstExists(false);
+    let explosion = explosions.getFirstExists(false);
     explosion.reset(alien.body.x, alien.body.y);
     explosion.play('kaboom', 30, false, true);
 
     if (aliens.countLiving() == 0) {
+        player_win = true;
         score += 1000;
         scoreText.text = scoreString + score;
 
@@ -320,13 +322,14 @@ function enemyHitsPlayer (player,bullet) {
     }
 
     //  And create an explosion :)
-    var explosion = explosions.getFirstExists(false);
+    let explosion = explosions.getFirstExists(false);
     explosion.reset(player.body.x, player.body.y);
     explosion.play('kaboom', 30, false, true);
 
+
     // PLAYER DIES
     // When the player dies
-    if (lives.countLiving() < 1) {
+    if (lives.countLiving() < 1 && !player_win) {
         player.kill();
         enemyBullets.callAll('kill');
 
@@ -355,10 +358,10 @@ function enemyFires() {
 
     if (enemyBullet && livingEnemies.length > 0) {
         
-        var random=game.rnd.integerInRange(0,livingEnemies.length-1);
+        let random=game.rnd.integerInRange(0,livingEnemies.length-1);
 
         // randomly select one of them
-        var shooter=livingEnemies[random];
+        let shooter=livingEnemies[random];
         // And fire the bullet from this enemy
         enemyBullet.reset(shooter.body.x, shooter.body.y);
 
@@ -382,6 +385,7 @@ function restart() {
 
     score = 0;
     scoreText.text = scoreString + score;
+    player_win = false;
 
     //resets the life count
     lives.callAll('revive');
