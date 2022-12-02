@@ -23,7 +23,7 @@ let keyHandler = function (event) {
       //console.log('konami code');
     
 $      //redirect to a new tab with the url
-      window.open(window.location.href + '/maladius', '_blank');
+      window.open(location.protocol + '//' + location.host + location.pathname + '/maladius', '_blank');
 	}
 };
 
