@@ -83,6 +83,7 @@ client.on(Events.InteractionCreate, async interaction => {
                     .setTitle("Résumé").setDescription(`Maladie : ${gameVariables[0]}\nMédicament : ${gameVariables[1]}`);
                 await interaction.update({embeds: [newEmbed], components: []});
             }
+
             simulation(interaction.channel);
         }
     }
@@ -96,7 +97,6 @@ client.on(Events.InteractionCreate, async interaction => {
         }
 
         await channel.send({ content: `Résultats`, embeds: [embed] });
-
     }
 
 
