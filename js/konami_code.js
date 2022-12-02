@@ -44,7 +44,7 @@ function exemple() {
 const modal1 = document.querySelector(".modal");
 const modal2 = document.querySelector(".modal2");
 
-document.getElementById("sida").addEventListener("click",toggleModalIST);
+document.getElementById("sida").addEventListener("click",toggleModal);
 const closeButtonSIDA = document.querySelector(".close-button");
 closeButtonSIDA.addEventListener("click", toggleModal);
 
