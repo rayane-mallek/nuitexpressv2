@@ -10,23 +10,16 @@
     <script src="js/Entites.js"></script>
     <script src="js/fight.js"></script>
     <script src="js/fightDiscord.js"></script>
-
-
-
+    <script src="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/js/shepherd.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="semantic/semantic.min.js"></script>
-
 
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/css/shepherd.css"/>
-    <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
-
-    <script src="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/js/shepherd.min.js" defer></script>
     <script type="module" src="js/formulaires.js" defer></script>
-
-
+    <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
     <title>Nuit Express V2</title>
 </head>
 <body>
@@ -91,7 +84,9 @@
         </div>
     </div>
 </div>
-  
+
+
+
 <div class="main-container">
     <div id="top-main">
     <h1 class="hey">Bienvenue sur VIH Simulator</h1>
@@ -157,17 +152,12 @@
         </div>
         <div onclick="visible('win-box')" id="win-box">
             <p id="winner"></p>
-            <p>a gagné</p>
+            <p>ont gagné</p>
         </div>
     </div>
 </div>
 </body>
 <script>
-
-
-
-
-
     /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
     function openNav() {
         document.getElementById("open-btn").innerText = " < ";

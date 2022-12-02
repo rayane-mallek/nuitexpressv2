@@ -31,8 +31,8 @@ function startFight(mst, medic) {
         totalSpeedMedic += tabEntiteMedic[i].speed;
     }
 
-    let tabTotalMST = ['MST', totalHealthMST, totalAttackMst, totalDefenseMst, totalSpeedMst, true]; 
-    let tabTotalMedic = ['Medicament', totalHealthMedic, totalAttackMedic, totalDefenseMedic, totalSpeedMedic, true];
+    let tabTotalMST = ['Les MST', totalHealthMST, totalAttackMst, totalDefenseMst, totalSpeedMst, true];
+    let tabTotalMedic = ['Les médicaments', totalHealthMedic, totalAttackMedic, totalDefenseMedic, totalSpeedMedic, true];
     generateModels(tabEntiteMst, tabEntiteMedic);
 
     playFight(tabTotalMST, tabTotalMedic, tabEntiteMst, tabEntiteMedic);
