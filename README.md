@@ -13,6 +13,8 @@ En cas de problème, n'hésitez pas à contacter le leader du groupe : `rayane.m
 Plongez dans une présentation des différents champs à saisir pour lancer vos combats.
 
 ### This is better than Hadouken !
+Haut haut bas bas gauche droite gauche droite B A.
+Vidéo :
 
 ### Easter egg
 
