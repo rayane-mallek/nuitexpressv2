@@ -15,9 +15,91 @@
 }
 #CampMedic{
     display: flex;
-    justify-content: flex-end; 
-    position: relative;   
+    position: relative;
+    justify-content: center;
 }
 #CampMST{
     position: relative;   
+}
+
+body {
+    margin: 0px;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.hey {
+    text-align: center;
+    font-size: 40px;
+}
+
+.start-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.container {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.main-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    width: 50%;
+}
+
+.select-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.nb-tour {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+}
+
+#startButton {
+    outline: none;
+    height: 40px;
+    text-align: center;
+    width: 130px;
+    border-radius: 15px;
+    background: #fff;
+    border: 2px solid #61ca9b;
+    color: #61ca9b;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+#startButton:hover {
+     color:white;
+     background: #61ca9b;
+ }
+
+.infos-box {
+    position: sticky;
+    z-index: 89;
+    background: rgba(182, 182, 182, 0.13);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(38px);
+}
+#MST1 { left: 20px; bottom: 100px}
+#medicament1 { right: 20px;bottom: 100px }
+
+.fight-container {
+    margin: 20px;
 }
