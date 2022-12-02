@@ -20,37 +20,37 @@ function generateParameters(name) {
         image: '',
     }
     switch (name) {
-        case 'Xx_Hepatite_xX':
+        case 'Papillomavirus':
             parameters.class = 'MST';
             parameters.health = 20;
             parameters.attack = 1;
             parameters.defense = 1;
             parameters.speed = 1;
-            parameters.image = 'assets/images/entites/virus.png';
+            parameters.image = 'assets/images/entites/Papillomavirus.png';
             break;
-        case 'Turbo VIH':
+        case 'Syphilis':
             parameters.class = 'MST';
             parameters.health = 10;
             parameters.attack = 10;
             parameters.defense = 10;
             parameters.speed = 10;
-            parameters.image = 'assets/images/entites/virus.png';
+            parameters.image = 'assets/images/entites/Syphilis.png';
             break;
-        case 'Mega Sida':
+        case 'VIH':
             parameters.class = 'MST';
             parameters.health = 10;
             parameters.attack = 10;
             parameters.defense = 10;
             parameters.speed = 10;
-            parameters.image = 'assets/images/entites/Sida.png';
+            parameters.image = 'assets/images/entites/VIH.png';
             break;
-        case 'Antibiotique':
+        case 'Vaccin':
             parameters.class = 'Medicament';
             parameters.health = 500;
             parameters.attack = 5;
             parameters.defense = 5;
             parameters.speed = 5;
-            parameters.image = 'assets/images/entites/medic.png';
+            parameters.image = 'assets/images/entites/Vaccin.png';
             break;
         case 'Preservatif':
             parameters.class = 'Medicament';
@@ -58,7 +58,7 @@ function generateParameters(name) {
             parameters.attack = 9999;
             parameters.defense = 9999;
             parameters.speed = 1;
-            parameters.image = 'assets/images/entites/medic.png';
+            parameters.image = 'assets/images/entites/Preservatif.png';
             break;
         case 'Contraception':
             parameters.class = 'Medicament';
@@ -66,7 +66,7 @@ function generateParameters(name) {
             parameters.attack = 10;
             parameters.defense = 10;
             parameters.speed = 10;
-            parameters.image = 'assets/images/entites/medic.png';
+            parameters.image = 'assets/images/entites/Contraception.png';
             break;
 
     }

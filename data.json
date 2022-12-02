@@ -2,40 +2,40 @@
         "data": [
             {
                 "id": "1",
-                "name": "Xx_Hepatite_xX",
+                "name": "Papillomavirus",
                 "class": "MST",
                 "health": 20,
                 "attack": 1,
                 "defense": 1,
                 "speed": 1,
-                "image": "assets/images/entites/virus.png"
+                "image": "assets/images/entites/Papillomavirus.png"
             },
             {
                 "id": "2",
-                "name": "Turbo VIH",
+                "name": "Syphilis",
                 "health": 10,
                 "attack": 10,
                 "defense": 10,
                 "speed": 10,
-                "image": "assets/images/entites/virus.png"
+                "image": "assets/images/entites/Syphilis.png"
             },
             {
                 "id": "3",
-                "name": "Mega Sida",
+                "name": "VIH",
                 "health": 10,
                 "attack": 10,
                 "defense": 10,
                 "speed": 10,
-                "image": "assets/images/entites/Sida.png"
+                "image": "assets/images/entites/VIH.png"
             },
             {
                 "id": "4",
-                "name": "Antibiotique",
+                "name": "Vaccin",
                 "health": 500,
                 "attack": 5,
                 "defense": 5,
                 "speed": 5,
-                "image": "assets/images/entites/medic.png"
+                "image": "assets/images/entites/Vaccin.png"
             },
             {
                 "id": "5",
@@ -44,7 +44,7 @@
                 "attack": 9999,
                 "defense": 9999,
                 "speed": 1,
-                "image": "assets/images/entites/medic.png"
+                "image": "assets/images/entites/Preservatif.png"
             },
             {
                 "id": "6",
@@ -53,7 +53,7 @@
                 "attack": 10,
                 "defense": 10,
                 "speed": 10,
-                "image": "assets/images/entites/medic.png"
+                "image": "assets/images/entites/Contraception.png"
             }
         ]
     }
