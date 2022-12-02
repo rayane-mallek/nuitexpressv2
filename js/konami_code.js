@@ -5,13 +5,11 @@ const pattern = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'A
 let current = 0;
 
 let keyHandler = function (event) {
-	console.log(event.key);
-    //console.log(current);
+	//console.log(event.key);
 
     // si la keydown ne fait pas partie du pattern
     // et si la keydown n'est pas correspondant à celle du pattern, à la case n°current
     if (pattern.indexOf(event.key) < 0 || event.key !== pattern[current]) {
-		// console.log(current);
         current = 0;
 		return;
 	} else {
@@ -22,17 +20,10 @@ let keyHandler = function (event) {
     // si le pattern est completé, "notif"
     if (pattern.length === current) {
       current = 0;
-      // window.alert('Felicitations, vous aveez reçu le VIH !!!');
-      console.log('Felicitations, vous aveez reçu le VIH !!!');
-      // konami_reaction();
-      // exemple();
-
+      //console.log('konami code');
     
-      // const trigger = document.querySelector(".trigger");
-      // const closeButton2 = document.querySelector(".close-button");
-      // closeButton2.addEventListener("click", toggleModal);
-      toggleModal();
-      exemple();
+$      //redirect to a new tab with the url
+      window.open(window.location.href + '/maladius', '_blank');
 	}
 };
 
