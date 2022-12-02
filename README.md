@@ -20,3 +20,4 @@ Plongez dans une présentation des différents champs à saisir pour lancer vos 
 Rendez-vous sur le serveur donné plus haut pour le tester. Il vous suffira de taper la commande `/jouer` et de suivre les instructions !
 
 ### MOVAI CODE : INTERFASSE
+Immersion dans la vie quotidienne d'un myope. Oui, vous l'avez peut-être compris, tout est devient flou.
