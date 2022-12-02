@@ -24,15 +24,18 @@ const tour = new Shepherd.Tour({
   useModalOverlay: true,
   defaultStepOptions: {
     classes: 'shadow-md bg-purple-dark',
-    scrollTo: true
+    scrollTo: true,
+    cancelIcon: {
+      enabled: true
+    },
   }
 });
 
 tour.addStep({
   id: 'virus-list',
-  text: 'Vous pouvez sélectionner ici le virus que vous souhaitez ajouter au combat.',
+  text: 'Bienvenue dans ce tutoriel. Vous pouvez ajouter une MST ici si vous le souhaitez (il y en a déjà une par défaut).',
   attachTo: {
-    element: '#MST',
+    element: '#addMST',
     on: 'bottom'
   },
   buttons: [
@@ -45,9 +48,9 @@ tour.addStep({
 
 tour.addStep({
   id: 'virus-list',
-  text: 'Cliquez ici si vous souhaitez ajouter une nouvelle MST au combat.',
+  text: 'Personnalisez votre MST en sélectionnant son nom.',
   attachTo: {
-    element: '#addMST',
+    element: '#containerSelectMST ',
     on: 'bottom'
   },
   buttons: [
@@ -63,7 +66,7 @@ tour.addStep({
   text: 'Les champs des médicaments fonctionnent de la même façon que les virus.',
   attachTo: {
     element: '#medicament_choice',
-    on: 'right'
+    on: 'bottom'
   },
   buttons: [
     {
@@ -75,7 +78,7 @@ tour.addStep({
 
 tour.addStep({
     id: 'virus-name',
-    text: 'Ce champ sert à définir le nombre de tours maximum.',
+    text: 'Ce champ sert à définir le nombre de tours maximum du simulateur.',
     attachTo: {
       element: '#max_turn',
       on: 'bottom'

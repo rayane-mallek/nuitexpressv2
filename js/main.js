@@ -6,10 +6,21 @@ $(document).ready(function () {
 
     function darkPattern(){
         let params = (new URL(document.location)).searchParams;
-        let darkPattern = params.get("darkPattern");  
+        let darkPattern = params.get("darkPattern");
         if(darkPattern){  
             $('.darkPattern').hide();
             $('.PatternDark').show();
+            function flouttage(time){
+                document.body.setAttribute('style','filter: blur(5px); transition: 2s;')  
+                }
+            function deflouttage(){
+              document.body.setAttribute('style','filter: blur(0); transition: 2s;')  
+            }
+            function floutdeflout(){   
+                flouttage();
+                setTimeout(deflouttage, 4000);
+            }
+            setInterval(floutdeflout,4000)
         }
     }
     

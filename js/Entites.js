@@ -33,21 +33,21 @@ function generateParameters(name) {
             parameters.health = 10;
             parameters.attack = 10;
             parameters.defense = 10;
-            parameters.speed = 14;
+            parameters.speed = 20;
             parameters.image = 'assets/images/entites/Syphilis.png';
             break;
         case 'VIH':
             parameters.class = 'MST';
-            parameters.health = 50;
-            parameters.attack = 50;
-            parameters.defense = 10;
+            parameters.health = 100;
+            parameters.attack = 20;
+            parameters.defense = 2;
             parameters.speed = 5;
             parameters.image = 'assets/images/entites/VIH.png';
             break;
         case 'Vaccin':
             parameters.class = 'Medicament';
-            parameters.health = 500;
-            parameters.attack = 5;
+            parameters.health = 30;
+            parameters.attack = 80;
             parameters.defense = 5;
             parameters.speed = 5;
             parameters.image = 'assets/images/entites/Vaccin.png';
@@ -55,16 +55,16 @@ function generateParameters(name) {
         case 'Preservatif':
             parameters.class = 'Medicament';
             parameters.health = 1;
-            parameters.attack = 9999;
-            parameters.defense = 9999;
+            parameters.attack = 1;
+            parameters.defense = 100;
             parameters.speed = 1;
             parameters.image = 'assets/images/entites/Preservatif.png';
             break;
         case 'Contraception':
             parameters.class = 'Medicament';
-            parameters.health = 100;
-            parameters.attack = 10;
-            parameters.defense = 10;
+            parameters.health = 50;
+            parameters.attack = 5;
+            parameters.defense = 50;
             parameters.speed = 10;
             parameters.image = 'assets/images/entites/Contraception.png';
             break;
