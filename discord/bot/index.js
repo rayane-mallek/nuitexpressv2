@@ -90,7 +90,7 @@ client.on(Events.InteractionCreate, async interaction => {
 
     async function simulation(channel) {
         let embed;
-        if (Math.floor(Math.random() * 10) >= 9) {
+        if (Math.floor(Math.random() * 10) >= 5) {
             embed = new EmbedBuilder().setTitle('La MST a remporté la partie !');
         } else {
             embed = new EmbedBuilder().setTitle('Le médicament a remporté la partie !');
