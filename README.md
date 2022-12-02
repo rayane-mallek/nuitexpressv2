@@ -1,9 +1,9 @@
 # Nuit Express V2 - Site de la nuit de l'info 2022
 Simulation de combats entre des MST et des moyens de s'en protéger/soigner.
 
-### Lien vers le bon site :
-### Lien vers le movai site (défi movai code) :
-### Lien vers le serveur Discord (défi bot Discord) :
+### Lien vers le bon site : https://webinfo.iutmontp.univ-montp2.fr/~mallekr/nuitexpressv2/
+### Lien vers le movai site (défi movai code) : https://webinfo.iutmontp.univ-montp2.fr/~mallekr/nuitexpressv2/?darkPattern=true
+### Lien vers le serveur Discord (défi bot Discord) : https://discord.gg/cRAxC86qeX
 
 En cas de problème, n'hésitez pas à contacter le leader du groupe : `rayane.mallek@etu.umontpellier.fr`
 
